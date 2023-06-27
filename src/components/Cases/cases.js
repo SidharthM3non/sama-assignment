@@ -21,6 +21,7 @@ import PropTypes from 'prop-types';
 import TableFooter from '@mui/material/TableFooter';
 import { useTheme } from '@mui/material/styles';
 import TablePagination from '@mui/material/TablePagination';
+import Chart from "chart.js/auto";
 import { Doughnut, Line } from "react-chartjs-2";
 import Chip from '@mui/material/Chip';
 
