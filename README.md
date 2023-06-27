@@ -1,6 +1,6 @@
 # To install the App
 
-### `npm instal --legacy-peer-deps`
+### `npm install --legacy-peer-deps`
 
 # To run the app
 
