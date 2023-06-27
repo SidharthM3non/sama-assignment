@@ -31,12 +31,15 @@ export default function Highlights() {
     const [openFirst, setFirstOpen] = React.useState(false);
     const [openSecond, setSecondOpen] = React.useState(false);
     const [openThird, setThirdOpen] = React.useState(false);
+    const [openFourth, setFourthOpen] = React.useState(false);
+    const [openFifth, setFifthOpen] = React.useState(false);
+    const [openSixth, setSixthOpen] = React.useState(false);
 
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Box sx={{ flexGrow: 1, marginTop: '7%', marginLeft: '5%', marginRight: '5%' }}>
-                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Your recent highlights/achievements</Typography>
+                <Box sx={{ flexGrow: 1, marginTop: '7%', marginLeft: '5%', marginRight: '5%', height: '100%' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Your recent highlights/achievements</Typography>
                     <Card elevation={0} sx={{ backgroundColor: 'white', borderRadius: '10px', height: '100%', marginTop: '2%' }}>
                         <CardContent>
                             <Grid container spacing={5}>
@@ -98,12 +101,12 @@ export default function Highlights() {
                                     <Grid item xs={1} sx={{ marginLeft: '1%' }}>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In the recent case of Garg Builders v Bharat Heavy Electricals Limited [Civil Appeal 
-                                        No. 6261 of 2021], a two-judge bench of the Supreme Court of India (Supreme Court) held that an arbitrator cannot grant pendente lite 
-                                        interest when the contracting parties have freely and expressly opted out of receiving interest under the contract.
-                                        The Supreme Court's verdict holds special significance since (i) it analysed the scope of the interest barring clause under the contract 
-                                        between the parties vis-à-vis Section 28 of the Indian Contract Act, 1872 (Contract Act); and (ii) it reinforced the well-founded principle 
-                                        that an arbitrator is a creature of contract, and its powers cannot traverse beyond the purview of the contract.</Typography>
+                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In the recent case of Garg Builders v Bharat Heavy Electricals Limited [Civil Appeal
+                                            No. 6261 of 2021], a two-judge bench of the Supreme Court of India (Supreme Court) held that an arbitrator cannot grant pendente lite
+                                            interest when the contracting parties have freely and expressly opted out of receiving interest under the contract.
+                                            The Supreme Court's verdict holds special significance since (i) it analysed the scope of the interest barring clause under the contract
+                                            between the parties vis-à-vis Section 28 of the Indian Contract Act, 1872 (Contract Act); and (ii) it reinforced the well-founded principle
+                                            that an arbitrator is a creature of contract, and its powers cannot traverse beyond the purview of the contract.</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>vs.</Typography>
@@ -112,8 +115,10 @@ export default function Highlights() {
                                     <Grid item xs={2}>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
-                                    paddingLeft: '15px' }}>Helped in resolving this case in record time.</Typography>
+                                        <Typography sx={{
+                                            fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
+                                            paddingLeft: '15px'
+                                        }}>Helped in resolving this case in record time.</Typography>
                                     </Grid>
                                     <Grid item xs={1}>
                                     </Grid>
@@ -159,14 +164,14 @@ export default function Highlights() {
                                     <Grid item xs={1} sx={{ marginLeft: '1%' }}>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In yet another hallmark judgment reinforcing the pro enforcement bias of the Indian 
-                                        judiciary, the Supreme Court has categorically emphasized that the restrictive scope of grounds on which enforcement of a foreign award may 
-                                        be refused in India. This judgment vindicates the New York Convention in letter and spirit and vanquishes the creative attempts of shrewd 
-                                        award-debtors to resist the enforcement of foreign arbitral awards by compelling the courts to adopt an expansive interpretation of the 
-                                        specific grounds enumerated in the Act. This judgment may be touted as a parting gift from Hon’ble Mr. Justice R.F. Nariman to the Indian 
-                                        arbitration regime, which has conspicuously taken large strides in the recent past to resemble the international best practices. The legal 
-                                        position qua enforcement of foreign awards is now settled for good- Unless a party can readily demonstrate grounds under Section 48(1) or 
-                                        48(2) of the Act, the award will be enforced in India.</Typography>
+                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In yet another hallmark judgment reinforcing the pro enforcement bias of the Indian
+                                            judiciary, the Supreme Court has categorically emphasized that the restrictive scope of grounds on which enforcement of a foreign award may
+                                            be refused in India. This judgment vindicates the New York Convention in letter and spirit and vanquishes the creative attempts of shrewd
+                                            award-debtors to resist the enforcement of foreign arbitral awards by compelling the courts to adopt an expansive interpretation of the
+                                            specific grounds enumerated in the Act. This judgment may be touted as a parting gift from Hon’ble Mr. Justice R.F. Nariman to the Indian
+                                            arbitration regime, which has conspicuously taken large strides in the recent past to resemble the international best practices. The legal
+                                            position qua enforcement of foreign awards is now settled for good- Unless a party can readily demonstrate grounds under Section 48(1) or
+                                            48(2) of the Act, the award will be enforced in India.</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>vs.</Typography>
@@ -175,8 +180,10 @@ export default function Highlights() {
                                     <Grid item xs={2}>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
-                                    paddingLeft: '15px' }}>Helped bring the settlement amount lower for the client.</Typography>
+                                        <Typography sx={{
+                                            fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
+                                            paddingLeft: '15px'
+                                        }}>Helped bring the settlement amount lower for the client.</Typography>
                                     </Grid>
                                     <Grid item xs={1}>
                                     </Grid>
@@ -223,10 +230,10 @@ export default function Highlights() {
                                     </Grid>
                                     <Grid item xs={3}>
                                         <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>On Mar. 30, the International Court of Justice (ICJ) issued
-                                         its judgment on the merits in Certain Iranian Assets, nearly seven years after the case between Iran and the United States was first filed. 
-                                         The Court found that a number of U.S. actions constituted violations of the Treaty of Amity between Iran and the United States, but that the 
-                                         2018 termination of the Treaty meant that the Court could only award monetary damages and could not order cessation of the United States’ 
-                                         activities</Typography>
+                                            its judgment on the merits in Certain Iranian Assets, nearly seven years after the case between Iran and the United States was first filed.
+                                            The Court found that a number of U.S. actions constituted violations of the Treaty of Amity between Iran and the United States, but that the
+                                            2018 termination of the Treaty meant that the Court could only award monetary damages and could not order cessation of the United States’
+                                            activities</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>vs.</Typography>
@@ -235,8 +242,10 @@ export default function Highlights() {
                                     <Grid item xs={2}>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
-                                    paddingLeft: '15px' }}>Helped someone with little knowledge find a favourable outcome in this case.</Typography>
+                                        <Typography sx={{
+                                            fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
+                                            paddingLeft: '15px'
+                                        }}>Helped someone with little knowledge find a favourable outcome in this case.</Typography>
                                     </Grid>
                                     <Grid item xs={1}>
                                     </Grid>
@@ -270,24 +279,24 @@ export default function Highlights() {
                             <IconButton
                                 aria-label="expand row"
                                 size="small"
-                                onClick={() => setFirstOpen(!openFirst)}
+                                onClick={() => setFourthOpen(!openFourth)}
                                 sx={{ position: 'absolute', right: 5, marginTop: '-0.3%', backgroundColor: 'white' }}
                             >
-                                {openFirst ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                {openFourth ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                             </IconButton>
                         </CardContent>
-                        <Collapse in={openFirst} timeout="auto" unmountOnExit>
+                        <Collapse in={openFourth} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <Grid container spacing={5}>
                                     <Grid item xs={1} sx={{ marginLeft: '1%' }}>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In the recent case of Garg Builders v Bharat Heavy Electricals Limited [Civil Appeal 
-                                        No. 6261 of 2021], a two-judge bench of the Supreme Court of India (Supreme Court) held that an arbitrator cannot grant pendente lite 
-                                        interest when the contracting parties have freely and expressly opted out of receiving interest under the contract.
-                                        The Supreme Court's verdict holds special significance since (i) it analysed the scope of the interest barring clause under the contract 
-                                        between the parties vis-à-vis Section 28 of the Indian Contract Act, 1872 (Contract Act); and (ii) it reinforced the well-founded principle 
-                                        that an arbitrator is a creature of contract, and its powers cannot traverse beyond the purview of the contract.</Typography>
+                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In the recent case of Garg Builders v Bharat Heavy Electricals Limited [Civil Appeal
+                                            No. 6261 of 2021], a two-judge bench of the Supreme Court of India (Supreme Court) held that an arbitrator cannot grant pendente lite
+                                            interest when the contracting parties have freely and expressly opted out of receiving interest under the contract.
+                                            The Supreme Court's verdict holds special significance since (i) it analysed the scope of the interest barring clause under the contract
+                                            between the parties vis-à-vis Section 28 of the Indian Contract Act, 1872 (Contract Act); and (ii) it reinforced the well-founded principle
+                                            that an arbitrator is a creature of contract, and its powers cannot traverse beyond the purview of the contract.</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>vs.</Typography>
@@ -296,8 +305,10 @@ export default function Highlights() {
                                     <Grid item xs={2}>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
-                                    paddingLeft: '15px' }}>Helped in resolving this case in record time.</Typography>
+                                        <Typography sx={{
+                                            fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
+                                            paddingLeft: '15px'
+                                        }}>Helped in resolving this case in record time.</Typography>
                                     </Grid>
                                     <Grid item xs={1}>
                                     </Grid>
@@ -331,26 +342,26 @@ export default function Highlights() {
                             <IconButton
                                 aria-label="expand row"
                                 size="small"
-                                onClick={() => setSecondOpen(!openSecond)}
+                                onClick={() => setFifthOpen(!openFifth)}
                                 sx={{ position: 'absolute', right: 5, marginTop: '-0.3%', backgroundColor: 'white' }}
                             >
-                                {openSecond ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                {openFifth ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                             </IconButton>
                         </CardContent>
-                        <Collapse in={openSecond} timeout="auto" unmountOnExit>
+                        <Collapse in={openFifth} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <Grid container spacing={5}>
                                     <Grid item xs={1} sx={{ marginLeft: '1%' }}>
                                     </Grid>
                                     <Grid item xs={3}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In yet another hallmark judgment reinforcing the pro enforcement bias of the Indian 
-                                        judiciary, the Supreme Court has categorically emphasized that the restrictive scope of grounds on which enforcement of a foreign award may 
-                                        be refused in India. This judgment vindicates the New York Convention in letter and spirit and vanquishes the creative attempts of shrewd 
-                                        award-debtors to resist the enforcement of foreign arbitral awards by compelling the courts to adopt an expansive interpretation of the 
-                                        specific grounds enumerated in the Act. This judgment may be touted as a parting gift from Hon’ble Mr. Justice R.F. Nariman to the Indian 
-                                        arbitration regime, which has conspicuously taken large strides in the recent past to resemble the international best practices. The legal 
-                                        position qua enforcement of foreign awards is now settled for good- Unless a party can readily demonstrate grounds under Section 48(1) or 
-                                        48(2) of the Act, the award will be enforced in India.</Typography>
+                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>In yet another hallmark judgment reinforcing the pro enforcement bias of the Indian
+                                            judiciary, the Supreme Court has categorically emphasized that the restrictive scope of grounds on which enforcement of a foreign award may
+                                            be refused in India. This judgment vindicates the New York Convention in letter and spirit and vanquishes the creative attempts of shrewd
+                                            award-debtors to resist the enforcement of foreign arbitral awards by compelling the courts to adopt an expansive interpretation of the
+                                            specific grounds enumerated in the Act. This judgment may be touted as a parting gift from Hon’ble Mr. Justice R.F. Nariman to the Indian
+                                            arbitration regime, which has conspicuously taken large strides in the recent past to resemble the international best practices. The legal
+                                            position qua enforcement of foreign awards is now settled for good- Unless a party can readily demonstrate grounds under Section 48(1) or
+                                            48(2) of the Act, the award will be enforced in India.</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>vs.</Typography>
@@ -359,8 +370,10 @@ export default function Highlights() {
                                     <Grid item xs={2}>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
-                                    paddingLeft: '15px' }}>Helped bring the settlement amount lower for the client.</Typography>
+                                        <Typography sx={{
+                                            fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
+                                            paddingLeft: '15px'
+                                        }}>Helped bring the settlement amount lower for the client.</Typography>
                                     </Grid>
                                     <Grid item xs={1}>
                                     </Grid>
@@ -394,23 +407,23 @@ export default function Highlights() {
                             <IconButton
                                 aria-label="expand row"
                                 size="small"
-                                onClick={() => setThirdOpen(!openThird)}
+                                onClick={() => setSixthOpen(!openSixth)}
                                 sx={{ position: 'absolute', right: 5, marginTop: '-0.3%', backgroundColor: 'white' }}
                             >
-                                {openThird ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                                {openSixth ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                             </IconButton>
                         </CardContent>
-                        <Collapse in={openThird} timeout="auto" unmountOnExit>
+                        <Collapse in={openSixth} timeout="auto" unmountOnExit>
                             <CardContent>
                                 <Grid container spacing={5}>
                                     <Grid item xs={1} sx={{ marginLeft: '1%' }}>
                                     </Grid>
                                     <Grid item xs={3}>
                                         <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>On Mar. 30, the International Court of Justice (ICJ) issued
-                                         its judgment on the merits in Certain Iranian Assets, nearly seven years after the case between Iran and the United States was first filed. 
-                                         The Court found that a number of U.S. actions constituted violations of the Treaty of Amity between Iran and the United States, but that the 
-                                         2018 termination of the Treaty meant that the Court could only award monetary damages and could not order cessation of the United States’ 
-                                         activities</Typography>
+                                            its judgment on the merits in Certain Iranian Assets, nearly seven years after the case between Iran and the United States was first filed.
+                                            The Court found that a number of U.S. actions constituted violations of the Treaty of Amity between Iran and the United States, but that the
+                                            2018 termination of the Treaty meant that the Court could only award monetary damages and could not order cessation of the United States’
+                                            activities</Typography>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>vs.</Typography>
@@ -419,8 +432,10 @@ export default function Highlights() {
                                     <Grid item xs={2}>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
-                                    paddingLeft: '15px' }}>Helped someone with little knowledge find a favourable outcome in this case.</Typography>
+                                        <Typography sx={{
+                                            fontSize: '14px', marginLeft: '4%', backgroundColor: 'white', borderRadius: '14px',
+                                            paddingLeft: '15px'
+                                        }}>Helped someone with little knowledge find a favourable outcome in this case.</Typography>
                                     </Grid>
                                     <Grid item xs={1}>
                                     </Grid>
