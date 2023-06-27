@@ -391,7 +391,7 @@ export default function Cases() {
                                         <Typography variant="h5" component="div">
                                             Cases
                                         </Typography>
-                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 1.8 }}
+                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 0.9, paddingTop: 0.9 }}
                                             onClick={() => {
                                                 setIsSettled(true);
                                                 setIsConsented(false); setIsOnHold(false); setIsWithdrawn(false);
@@ -403,7 +403,7 @@ export default function Cases() {
                                                 <Chip label="8" sx={{ position: 'absolute', right: 10, backgroundColor: 'white' }} />
                                             </CardContent>
                                         </Card>
-                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 1.8 }}
+                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 0.9, paddingTop: 0.9 }}
                                             onClick={() => {
                                                 setIsOnHold(true);
                                                 setIsConsented(false); setIsSettled(false); setIsWithdrawn(false);
@@ -415,7 +415,7 @@ export default function Cases() {
                                                 <Chip label="10" sx={{ position: 'absolute', right: 10, backgroundColor: 'white' }} />
                                             </CardContent>
                                         </Card>
-                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 1.8 }}
+                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 0.9, paddingTop: 0.9 }}
                                             onClick={() => {
                                                 setIsConsented(true);
                                                 setIsSettled(false); setIsOnHold(false); setIsWithdrawn(false);
@@ -427,7 +427,7 @@ export default function Cases() {
                                                 <Chip label="7" sx={{ position: 'absolute', right: 10, backgroundColor: 'white' }} />
                                             </CardContent>
                                         </Card>
-                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 1.8 }}
+                                        <Card className="paper" elevation={0} sx={{ cursor: 'pointer', backgroundColor: '#DBDFEA', marginTop: '2%', borderRadius: '20px', paddingBottom: 0.9, paddingTop: 0.9 }}
                                             onClick={() => {
                                                 setIsWithdrawn(true);
                                                 setIsConsented(false); setIsOnHold(false); setIsSettled(false);
