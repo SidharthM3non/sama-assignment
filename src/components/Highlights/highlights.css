@@ -1,0 +1,8 @@
+.div.scrollable {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.div.scrollable-grid {
+    display: inline-block;
+}

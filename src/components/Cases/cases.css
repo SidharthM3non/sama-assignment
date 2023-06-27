@@ -1,0 +1,18 @@
+.paper{
+    background-color: aquamarine;
+}
+
+.paper:hover,
+.paper:focus {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transform: translateY(-5px);
+  transition: transform 450ms;
+}
+
+.table tr:nth-child(odd) {
+  background: #ACB1D6;
+}
+
+.table tr:nth-child(even) {
+  background: #DBDFEA;
+}
