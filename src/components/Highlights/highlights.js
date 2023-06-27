@@ -1,9 +1,6 @@
 import React from "react";
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Button, Divider, Typography } from "@mui/material";
-import Closed from '../assets/closedCase.png';
-import Ongoing from '../assets/ongoing.png';
+import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -34,51 +31,6 @@ export default function Highlights() {
     const [openFirst, setFirstOpen] = React.useState(false);
     const [openSecond, setSecondOpen] = React.useState(false);
     const [openThird, setThirdOpen] = React.useState(false);
-    const [openFourth, setFourthOpen] = React.useState(false);
-    const [openFifth, setFifthOpen] = React.useState(false);
-
-    const highlights = [
-        {
-            case: {
-                thumbnail: <img src={Ongoing} style={{ marginLeft: '34%', marginTop: '15%', height: '90px', width: '115px' }} />,
-                title: "Royden Harold Buthello vs The State Of Chhattisgarh",
-                judgement_date: "16 June, 2023",
-                verdict: "Pending documentation",
-                summary: "The appellants claim that they are residents of Mumbai and the appellant No.1 is a qualified automobile engineer, who is an income tax payee. The appellant No.2 is a businessman carrying on business of logistics, transportation, renting out vehicles etc.",
-                status: "Ongoing"
-            }
-        },
-        {
-            case: {
-                thumbnail: <img src={Closed} style={{ marginLeft: '37%', marginTop: '15%', border: '7px solid #7b913a', borderRadius: '50%', height: '72px', width: '72px' }} />,
-                title: "Royden Harold Buthello vs The State Of Chhattisgarh",
-                judgement_date: "28 February, 2023",
-                verdict: "Legal victory in favour of your client",
-                summary: "The appellants claim that they are residents of Mumbai and the appellant No.1 is a qualified automobile engineer, who is an income tax payee. The appellant No.2 is a businessman carrying on business of logistics, transportation, renting out vehicles etc.",
-                status: "Closed"
-            }
-        },
-        {
-            case: {
-                thumbnail: <img src={Closed} style={{ marginLeft: '37%', marginTop: '15%', border: '7px solid #7b913a', borderRadius: '50%', height: '72px', width: '72px' }} />,
-                title: "Shah Newaz Khan vs The State Of Nagaland",
-                judgement_date: "28 February, 2023",
-                verdict: "Legal victory in favour of your client",
-                summary: "Mr. Sharma, learned counsel appearing for the respondents 4 and 5, advanced the following arguments: a. Power to effect inter-State transfer of any suit, appeal or other proceeding is not available to be exercised by a High Court in terms of section 24 of the CPC",
-                status: "Closed"
-            }
-        },
-        {
-            case: {
-                thumbnail: <img src={Closed} style={{ marginLeft: '37%', marginTop: '15%', border: '7px solid #7b913a', borderRadius: '50%', height: '72px', width: '72px' }} />,
-                title: "Indrajit Das vs The State Of Tripura",
-                judgement_date: "28 February, 2023",
-                verdict: "Legal victory in favour of your client",
-                summary: "The accused ‘juvenile K’ was tried under the provisions of the Juvenile Justice (Care and Protection of Children) Act, 2000. The present appellant was tried by the regular Sessions Court. Upon charge being framed and read out, he pleaded not guilty and claimed to be tried.",
-                status: "Closed"
-            }
-        },
-    ]
 
     return (
         <>
@@ -106,8 +58,6 @@ export default function Highlights() {
                                 <Grid item xs={1}>
                                     <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Closing Amount</Typography>
                                 </Grid>
-                                {/* <Grid item xs={1}>
-                                </Grid> */}
                             </Grid>
                         </CardContent>
                     </Card>
@@ -481,40 +431,6 @@ export default function Highlights() {
                     <br />
                 </Box>
             </ThemeProvider>
-            {/* <Typography sx={{ fontFamily: 'sans-serif', marginLeft: '5%', marginTop: '5%' }}>Highlights/Updates</Typography>
-                <Grid sx={{ flexGrow: 1, marginBottom: '5%' }} container spacing={6}>
-                    <Grid item xs={12} sx={{ marginLeft: '5%' }}>
-                        <Grid container spacing={12}>
-                            {highlights.map((highlight) => (
-                                <Grid key={highlight} item>
-                                    
-                                    <Paper
-                                        sx={{
-                                            height: 550,
-                                            width: 350,
-                                            marginTop: '20%',
-                                            position: 'relative'
-                                        }}
-                                    >
-                                        <img src={highlight.case.thumbnail} style={{ border: '1px solid white', borderRadius: '50%', height: '70px', width: '70px', backgroundColor: '#b8ffcf' }} />
-                                        {highlight.case.thumbnail}
-                                        <Typography sx={{ fontSize: '14px', fontWeight: 'bold', fontFamily: 'sans-serif', textAlign: 'center', marginTop: '15%' }}>{highlight.case.title}</Typography>
-                                        <Typography sx={{ fontSize: '12px', fontWeight: 'bold', fontFamily: 'sans-serif', textAlign: 'center', marginTop: '10%', color: 'lightgrey' }}>{highlight.case.judgement_date}</Typography>
-                                        <Typography sx={{ fontSize: '12px', fontFamily: "sans-serif", textAlign: 'center', marginTop: '10%', paddingLeft: '1%', paddingRight: '1%' }}>{highlight.case.verdict}</Typography>
-                                        <Typography sx={{ fontSize: '10px', fontFamily: 'sans-serif', textAlign: 'center', marginTop: '10%', paddingLeft: '1%', paddingRight: '1%' }}>{highlight.case.summary}...</Typography>
-                                        <Button fullWidth variant="contained" sx={{ backgroundColor: 'black', position: 'absolute', bottom: 0, borderRadius: '0px 0px 5px 5px' }}>View Full Details</Button>
-                                        <div style={{ backgroundColor: 'whitesmoke', position: 'absolute', bottom: 0, display: 'flex', width: '100%' }}>
-                                            <div style={{ marginLeft: '18%' }}>
-                                                <Typography sx={{ fontSize: '10px', fontFamily: 'sans-serif', textAlign: 'center', color: 'darkgrey' }}>Status</Typography>
-                                                <Typography sx={{ fontSize: '12px', fontFamily: 'sans-serif', textAlign: 'center', fontWeight: 'bold' }}>{highlight.case.status}</Typography>    
-                                            </div><Divider orientation="vertical" /><Button sx={{ color: 'black', marginLeft: '15%' }}>View Full Details</Button>
-                                        </div>
-                                    </Paper>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Grid>
-                </Grid> */}
         </>
     )
 
