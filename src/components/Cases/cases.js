@@ -111,7 +111,6 @@ const onHoldRows = [
     createData('1555', 'Garg Builders', 'Garg Builders v Bharat Heavy Electricals', '25/04/2023', '₹80000'),
     createData('1780', 'State of U.P. and Anr.', 'Laxmi Continental Construction v State of U.P. and Anr.', '12/06/2023', '₹120000'),
     createData('884', 'Sharpooji Pallonji and Co. Pvt. Ltd.', 'Sharpooji Pallonji and Co. Pvt. Ltd. v Rattan India Power Ltd.', '24/01/2023', '₹75000'),
-    createData('991', 'Inox Renewables Ltd.', 'Inox Renewables Ltd. v Jayesh Electricals Ltd.', '28/01/2023', '₹20000'),
 ].sort((a, b) => (a.date < b.date ? -1 : 1));
 
 const consentedRows = [
@@ -276,6 +275,23 @@ export default function Cases() {
         setWithdrawnPage(0);
     };
 
+    const [settledPercentage, setSettledPercentage] = React.useState('');
+    const [onHoldPercentage, setOnHoldPercentage] = React.useState('');
+    const [consentedPercentage, setConsentedPercentage] = React.useState('');
+    const [withdrawnPercentage, setWithdrawnPercentage] = React.useState('');
+
+    React.useEffect(() => {
+        let percentage = rows.length + onHoldRows.length + consentedRows.length + withdrawnRows.length;
+        let sPercent = Math.floor(rows.length/percentage * 100);
+        let ohPercent = Math.floor(onHoldRows.length/percentage * 100);
+        let cPercent = Math.floor(consentedRows.length/percentage * 100);
+        let wPercent = Math.floor(withdrawnRows.length/percentage * 100);
+        setSettledPercentage(sPercent + '%');
+        setOnHoldPercentage(ohPercent + '%');
+        setConsentedPercentage(cPercent + '%');
+        setWithdrawnPercentage(wPercent + '%');
+    })
+
     return (
         <div style={{ height: '100%' }} >
             <ThemeProvider theme={theme}>
@@ -310,22 +326,22 @@ export default function Cases() {
                                 <Typography variant="h2" sx={{ textAlign: 'center' }}>
                                     {isSettled ? (
                                         <>
-                                            30%
+                                            {settledPercentage}
                                         </>
                                     ) : (null)}
                                     {isOnHold ? (
                                         <>
-                                            37%
+                                            {onHoldPercentage}
                                         </>
                                     ) : (null)}
                                     {isConsented ? (
                                         <>
-                                            26%
+                                            {consentedPercentage}
                                         </>
                                     ) : (null)}
                                     {isWithdrawn ? (
                                         <>
-                                            7%
+                                            {withdrawnPercentage}
                                         </>
                                     ) : (null)}
                                 </Typography>
@@ -443,7 +459,7 @@ export default function Cases() {
                                         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
                                             <TableBody>
                                                 <TableRow>
-                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6' }}>
+                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6', whiteSpace: 'nowrap' }}>
                                                         Settled Cases
                                                     </TableCell>
                                                 </TableRow>
@@ -486,11 +502,11 @@ export default function Cases() {
                                                         </TableCell>
                                                     </TableRow>
                                                 ))}
-                                                {emptyRows > 0 && (
+                                                {/* {emptyRows > 0 && (
                                                     <TableRow style={{ height: 53 * emptyRows }}>
                                                         <TableCell colSpan={6} />
                                                     </TableRow>
-                                                )}
+                                                )} */}
                                             </TableBody>
                                             <TableFooter>
                                                 <TableRow>
@@ -520,7 +536,7 @@ export default function Cases() {
                                         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
                                             <TableBody>
                                                 <TableRow>
-                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6' }}>
+                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6', whiteSpace: 'nowrap' }}>
                                                         On-Hold Cases
                                                     </TableCell>
                                                 </TableRow>
@@ -563,11 +579,11 @@ export default function Cases() {
                                                         </TableCell>
                                                     </TableRow>
                                                 ))}
-                                                {emptyOnHoldRows > 0 && (
+                                                {/* {emptyOnHoldRows > 0 && (
                                                     <TableRow style={{ height: 53 * emptyOnHoldRows }}>
                                                         <TableCell colSpan={6} />
                                                     </TableRow>
-                                                )}
+                                                )} */}
                                             </TableBody>
                                             <TableFooter>
                                                 <TableRow>
@@ -597,7 +613,7 @@ export default function Cases() {
                                         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
                                             <TableBody>
                                                 <TableRow>
-                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6' }}>
+                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6', whiteSpace: 'nowrap' }}>
                                                         Consented Cases
                                                     </TableCell>
                                                 </TableRow>
@@ -674,7 +690,7 @@ export default function Cases() {
                                         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
                                             <TableBody>
                                                 <TableRow>
-                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6' }}>
+                                                    <TableCell component="th" scope="row" sx={{ fontWeight: 'bold', fontSize: '20px', borderBottomColor: '#ACB1D6', whiteSpace: 'nowrap' }}>
                                                         Withdrawn Cases
                                                     </TableCell>
                                                 </TableRow>

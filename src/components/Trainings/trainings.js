@@ -105,6 +105,62 @@ const theme = createTheme({
     },
 });
 
+function createData(icon, name, description, date, duration, trainingLink, trainingLinkName) {
+    return { icon, name, description, date, duration, trainingLink, trainingLinkName };
+}
+
+const trainings = [
+    createData(trainingIcon, 'Legal Research & Legal Writing - A Paralegal Skills Course',
+        'Fast & practical legal research, drafting, & communication class for paralegals, legal assistants, & law students.',
+        '13-June-2023', '2 Weeks',
+        'https://www.udemy.com/course/legal-research-legal-writing-paralegal-skills-course/',
+        'Legal Research & Legal Writing'
+    ),
+    createData(trainingIcon2, 'Arbitration - Domestic & International',
+        'Get trained to handle each step of arbitration proceedings including drafting of pleadings, oral hearings, etc.',
+        '08-May-2023', '3 Weeks',
+        'https://www.udemy.com/course/arbitration/',
+        'Arbitration'
+    ),
+    createData(trainingIcon3, 'The complete course on the Indian Contract Act, 1872',
+        'Law of Contract in India as under Indian Contract Act, 1872.',
+        '10-April-2023', '1 Week',
+        'https://www.udemy.com/course/law-of-contract-as-under-indian-contract-act-1872/',
+        'Indian Contract Act, 1872'
+    ),
+    createData(trainingIcon4, 'Diploma Course in Labour Laws and Statutory Compliances',
+        'Every HR and Entrepreneur should know - with FAQs',
+        '24-February-2023', '2 Weeks',
+        'https://www.udemy.com/course/labour-laws-and-statutory-compliances/',
+        'Labour Laws & Compliances'
+    ),
+];
+
+function createOngoingData(icon, name, description, progress, progressText, trainingLink, trainingLinkName) {
+    return { icon, name, description, progress, progressText, trainingLink, trainingLinkName };
+}
+
+const ongoingTrainings = [
+    createOngoingData(trainingIcon, 'Legal Research & Legal Writing - A Paralegal Skills Course',
+        'Fast & practical legal research, drafting, & communication class for paralegals, legal assistants, & law students.',
+        '50', '50%',
+        'https://www.udemy.com/course/legal-research-legal-writing-paralegal-skills-course/',
+        'Legal Research & Legal Writing'
+    ),
+    createOngoingData(trainingIcon2, 'Arbitration - Domestic & International',
+        'Get trained to handle each step of arbitration proceedings including drafting of pleadings, oral hearings, etc.',
+        '90', '90%',
+        'https://www.udemy.com/course/arbitration/',
+        'Arbitration'
+    ),
+    createOngoingData(trainingIcon3, 'The complete course on the Indian Contract Act, 1872',
+        'Law of Contract in India as under Indian Contract Act, 1872.',
+        '20', '20%',
+        'https://www.udemy.com/course/law-of-contract-as-under-indian-contract-act-1872/',
+        'Indian Contract Act, 1872'
+    ),
+];
+
 export default function Trainings() {
 
     const [value, setValue] = React.useState(0);
@@ -116,6 +172,10 @@ export default function Trainings() {
     const handleChangeIndex = (index) => {
         setValue(index);
     };
+
+    React.useEffect(() => {
+        console.log(ongoingTrainings);
+    })
 
     return (
         <>
@@ -141,13 +201,13 @@ export default function Trainings() {
                         </Grid>
                         <Grid container spacing={1} >
                             <Grid item xs={2} sx={{ marginLeft: '5%', marginTop: '1%' }}>
-                                <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>4</Typography>
+                                <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>{trainings.length}</Typography>
                             </Grid>
                             <Grid item xs={2} sx={{ marginTop: '1%' }}>
-                                <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>3</Typography>
+                                <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>{ongoingTrainings.length}</Typography>
                             </Grid>
                             <Grid item xs={2} sx={{ marginTop: '1%' }}>
-                                <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>4</Typography>
+                                <Typography sx={{ fontWeight: 'bold', fontSize: '24px' }}>{trainings.length}</Typography>
                             </Grid>
                         </Grid>
                         <br /><br />
@@ -169,290 +229,103 @@ export default function Trainings() {
                                 onChangeIndex={handleChangeIndex}
                             >
                                 <TabPanel value={value} index={0} dir={theme.direction}>
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>Legal Research & Legal Writing - A Paralegal Skills Course</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Fast & practical legal research, drafting, & communication class for paralegals, legal assistants, & law students.</Typography>
+                                    {trainings.map((training, key) => (
+                                        <>
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={training.icon} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
+                                                <div style={{ width: '100%', marginLeft: '2%' }}>
+                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>{training.name}</Typography>
+                                                    <Typography sx={{ fontSize: '14px' }}>{training.description}</Typography>
+                                                    <br />
+                                                    <Divider />
+                                                    <br />
+                                                    <Grid container spacing={1} >
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Date of Completion</Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Duration</Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Certificate</Typography>
+                                                        </Grid>
+                                                    </Grid>
+                                                    <br />
+                                                    <Grid container spacing={1} >
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontSize: '14px' }}>{training.date}</Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>{training.duration}</Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
+                                                                window.open(training.trainingLink)}>{training.trainingLinkName}
+                                                            </Typography>
+                                                        </Grid>
+                                                        <Grid item xs={3}>
+                                                            <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>Click<a href={Resume} download="SidharthMenonResume" target="_blank"
+                                                                rel="noopener noreferrer" style={{ textDecoration: 'none' }}> here </a>to download your certificate</Typography>
+                                                        </Grid>
+                                                    </Grid>
+                                                </div>
+                                            </div>
                                             <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Date of Completion</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Duration</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px' }}>13-June-2023</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>2 Weeks</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                        window.open("https://www.udemy.com/course/legal-research-legal-writing-paralegal-skills-course/")}>Legal Research & Legal Writing
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={3}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>Click<a href={Resume} download="SidharthMenonResume" target="_blank"
-                                                        rel="noopener noreferrer" style={{ textDecoration: 'none' }}> here </a>to download your certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon2} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>Arbitration - Domestic & International</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Get trained to handle each step of arbitration proceedings including drafting of pleadings, oral hearings, etc.</Typography>
-                                            <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Date of Completion</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Duration</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px' }}>08-May-2023</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>3 Weeks</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                        window.open("https://www.udemy.com/course/arbitration/")}>Arbitration
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={3}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>Click<a href={Resume} download="SidharthMenonResume" target="_blank"
-                                                        rel="noopener noreferrer" style={{ textDecoration: 'none' }}> here </a>to download your certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon3} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>The complete course on the Indian Contract Act, 1872</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Law of Contract in India as under Indian Contract Act, 1872.</Typography>
-                                            <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Date of Completion</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Duration</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px' }}>10-April-2023</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>1 Week</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                        window.open("https://www.udemy.com/course/law-of-contract-as-under-indian-contract-act-1872/")}>Indian Contract Act, 1872
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={3}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>Click<a href={Resume} download="SidharthMenonResume" target="_blank"
-                                                        rel="noopener noreferrer" style={{ textDecoration: 'none' }}> here </a>to download your certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon4} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>Diploma Course in Labour Laws and Statutory Compliances</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Every HR and Entrepreneur should know - with FAQs</Typography>
-                                            <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Date of Completion</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Duration</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px' }}>24-February-2023</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>2 Weeks</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                        window.open("https://www.udemy.com/course/labour-laws-and-statutory-compliances/")}>Labour Laws & Compliances
-                                                    </Typography>
-                                                </Grid>
-                                                <Grid item xs={3}>
-                                                    <Typography sx={{ fontSize: '14px', marginLeft: '4%' }}>Click<a href={Resume} download="SidharthMenonResume" target="_blank"
-                                                        rel="noopener noreferrer" style={{ textDecoration: 'none' }}> here </a>to download your certificate</Typography>
-                                                </Grid>
-                                            </Grid>
-                                        </div>
-                                    </div>
+                                        </>
+                                    ))}
                                     <br /><br />
                                 </TabPanel>
                                 <TabPanel value={value} index={1} dir={theme.direction}>
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>Legal Research & Legal Writing - A Paralegal Skills Course</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Fast & practical legal research, drafting, & communication class for paralegals, legal assistants, & law students.</Typography>
-                                            <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={0.4}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Progress</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}></Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container>
-                                                <Grid container spacing={0}>
-                                                    <Grid item xs={0.4}>
-                                                        <Typography sx={{ fontSize: '14px' }}>50%</Typography>
+                                    {ongoingTrainings.map((ongoingTraining, key) => (
+                                        <>
+                                            {console.log(ongoingTraining)}
+                                            {/* <p>{ongoingTraining?.name}</p> */}
+                                            <div style={{ display: 'flex' }}>
+                                                <img src={ongoingTraining.icon} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
+                                                <div style={{ width: '100%', marginLeft: '2%' }}>
+                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>{ongoingTraining.name}</Typography>
+                                                    <Typography sx={{ fontSize: '14px' }}>{ongoingTraining.description}</Typography>
+                                                    <br />
+                                                    <Divider />
+                                                    <br />
+                                                    <Grid container spacing={1}>
+                                                        <Grid item xs={0.4}>
+                                                            <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Progress</Typography>
+                                                        </Grid>
+                                                        <Grid item xs={2}></Grid>
+                                                        <Grid item xs={2}>
+                                                            <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
+                                                        </Grid>
                                                     </Grid>
-                                                    <Grid item xs={2} sx={{ marginTop: '0.4%' }}>
-                                                        <BorderLinearProgressMiddle variant="determinate" value={50} sx={{ maxWidth: '60%' }} />
+                                                    <br />
+                                                    <Grid container>
+                                                        <Grid container spacing={0}>
+                                                            <Grid item xs={0.4}>
+                                                                <Typography sx={{ fontSize: '14px' }}>{ongoingTraining.progressText}</Typography>
+                                                            </Grid>
+                                                            <Grid item xs={2} sx={{ marginTop: '0.4%' }}>
+                                                                {ongoingTraining.progress > 75 ? (<BorderLinearProgressEnd variant="determinate" value={ongoingTraining.progress} sx={{ maxWidth: '60%' }} />) 
+                                                                : ongoingTraining.progress < 25 ? (
+                                                                    <BorderLinearProgressStart variant="determinate" value={ongoingTraining.progress} sx={{ maxWidth: '60%' }} />
+                                                                ) : (
+                                                                    <BorderLinearProgressMiddle variant="determinate" value={ongoingTraining.progress} sx={{ maxWidth: '60%' }} />
+                                                                )}
+                                                            </Grid>
+                                                            <Grid item xs={2}>
+                                                                <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
+                                                                    window.open(ongoingTraining.trainingLink)}>{ongoingTraining.trainingLinkName}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </Grid>
                                                     </Grid>
-                                                    <Grid item xs={2}>
-                                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                            window.open("https://www.udemy.com/course/legal-research-legal-writing-paralegal-skills-course/")}>Legal Research & Legal Writing
-                                                        </Typography>
-                                                    </Grid>
-                                                </Grid>
-
-                                            </Grid>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon2} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>Arbitration - Domestic & International</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Get trained to handle each step of arbitration proceedings including drafting of pleadings, oral hearings, etc.</Typography>
+                                                </div>
+                                            </div>
                                             <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={0.4}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Progress</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}></Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container>
-                                                <Grid container spacing={0}>
-                                                    <Grid item xs={0.4}>
-                                                        <Typography sx={{ fontSize: '14px' }}>90%</Typography>
-                                                    </Grid>
-                                                    <Grid item xs={2} sx={{ marginTop: '0.4%' }}>
-                                                        <BorderLinearProgressEnd variant="determinate" value={90} sx={{ maxWidth: '60%' }} />
-                                                    </Grid>
-                                                    <Grid item xs={2}>
-                                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                            window.open("https://www.udemy.com/course/arbitration/")}>Arbitration
-                                                        </Typography>
-                                                    </Grid>
-                                                </Grid>
-
-                                            </Grid>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div style={{ display: 'flex' }}>
-                                        <img src={trainingIcon3} alt='courseIcon' style={{ borderRadius: '14px', height: '150px', width: '150px', marginTop: '3%' }}></img>
-                                        <div style={{ width: '100%', marginLeft: '2%' }}>
-                                            <Typography sx={{ fontWeight: 'bold', fontSize: '18px', marginTop: '3%' }}>The complete course on the Indian Contract Act, 1872</Typography>
-                                            <Typography sx={{ fontSize: '14px' }}>Law of Contract in India as under Indian Contract Act, 1872.</Typography>
-                                            <br />
-                                            <Divider />
-                                            <br />
-                                            <Grid container spacing={1} >
-                                                <Grid item xs={0.4}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px' }}>Progress</Typography>
-                                                </Grid>
-                                                <Grid item xs={2}></Grid>
-                                                <Grid item xs={2}>
-                                                    <Typography sx={{ fontWeight: 'bold', fontSize: '14px', marginLeft: '4%' }}>Training Link</Typography>
-                                                </Grid>
-                                            </Grid>
-                                            <br />
-                                            <Grid container>
-                                                <Grid container spacing={0}>
-                                                    <Grid item xs={0.4}>
-                                                        <Typography sx={{ fontSize: '14px' }}>20%</Typography>
-                                                    </Grid>
-                                                    <Grid item xs={2} sx={{ marginTop: '0.4%' }}>
-                                                        <BorderLinearProgressStart variant="determinate" value={20} sx={{ maxWidth: '60%' }} />
-                                                    </Grid>
-                                                    <Grid item xs={2}>
-                                                        <Typography sx={{ fontSize: '14px', marginLeft: '4%', textDecoration: 'underline', cursor: 'pointer' }} onClick={() =>
-                                                            window.open("https://www.udemy.com/course/law-of-contract-as-under-indian-contract-act-1872/")}>Indian Contract Act, 1872
-                                                        </Typography>
-                                                    </Grid>
-                                                </Grid>
-
-                                            </Grid>
-                                        </div>
-                                    </div>
+                                        </>
+                                    ))}
                                     <br />
                                 </TabPanel>
                             </SwipeableViews>
